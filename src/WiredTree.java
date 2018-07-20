@@ -101,6 +101,44 @@ public class WiredTree {
 
     /* TODO */
     public void delete(TNode nodeToDel){//page 221
+        TNode x,y,z;
+        TNode current;
+        z=nodeToDel;
+
+        if(!lChild(z)|| !rChild(z)){
+            y=z;
+        }
+        else{
+            y=treeSuccessor(z);
+        }
+
+        if(lChild(y)){
+            x=y.getLeft();
+        }
+        else if (rChild(y)){
+            x=y.getRight();
+        }
+        else{
+            x=null;
+        }
+
+        if(y.getParent()==null){
+            _root=x;
+        }
+        else if (lChild(y)){
+            y.getParent().setLeft(x);
+        }
+        else{
+            y.getParent().setRight(x);
+        }
+
+        if (y!=z){
+            z.setData(y.getData());
+        }
+
+        /*TODO : update the numbers of nude and than the median*/
+
+        updateMedian();
 
     }
 
