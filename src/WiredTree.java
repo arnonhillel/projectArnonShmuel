@@ -144,12 +144,14 @@ public class WiredTree {
 
     /* TODO */
     private boolean rChild(TNode x) {
-        //return if is a child or wired/
+        return (x!= null)&&(x.getRight()!=null)&&
+                (x==x.getRight().getParent());
     }
 
     /* TODO */
     private boolean lChild(TNode x) {
-        //return if is a child or wired/
+        return (x!= null)&&(x.getLeft()!=null)&&
+                (x==x.getLeft().getParent());
     }
 
     /* TODO */
