@@ -1,6 +1,7 @@
 public class WiredTree {
     private TNode _root;
-    private static Data _median;
+    private TNode _median;
+    private boolean medianOdd = false;
 
 
     /**
@@ -18,7 +19,8 @@ public class WiredTree {
     public WiredTree(TNode node) {
         if (_root == null) {
             _root = node;
-            _median = node.getData();
+            _median = node;
+            medianOdd = true;
         }
     }
 
@@ -69,7 +71,7 @@ public class WiredTree {
         }
         node.setLeft(treePredecessor(node));
         node.setRight(treeSuccessor(node));
-
+        updateMedianAdd(node);
         //  updateMedian();//update the pointer on the median
     }//end of add method/
 
@@ -130,7 +132,7 @@ public class WiredTree {
             z.setData(y.getData());
         }
 
-        /*TODO : update the numbers of nude and than the median*/
+        updateMedianDelete(nodeToDel);
 
         //updateMedian();
 
@@ -274,6 +276,35 @@ public class WiredTree {
         return leftMostTreeNode;
     }
 
+
+    private void updateMedianDelete (TNode current) {
+
+            int state = this._median.getData().compareTo(current.getData());
+            if (state < 0 && medianOdd == false);
+            if (state >= 0 && medianOdd == false)this._median = this._median.getRight();
+            if (state <= 0 && medianOdd == true)this._median = this._median.getLeft();
+            if (state > 0 && medianOdd == true) ;
+            this.medianOdd = !this.medianOdd;
+    }
+
+    private void updateMedianAdd (TNode current) {
+        if(this.get_median()== null){
+            this._median = current;
+            this.medianOdd = true;
+        }
+        else{
+            int state = this._median.getData().compareTo(current.getData());
+            if (state <= 0 && medianOdd == false) this._median = this._median.getRight();
+            if (state > 0 && medianOdd == false);
+            if (state < 0 && medianOdd == true);
+            if (state >= 0 && medianOdd == true) this._median = this._median.getLeft();
+            this.medianOdd = !this.medianOdd;
+        }
+    }
+
+    public  TNode get_median(){
+        return this._median;
+    }
 
     /* TODO */
     //private void updateMedian () {
