@@ -1,6 +1,6 @@
 public class TNode {
 
-   private Data _data;
+    private Data _data;
     private TNode _left,_right,_parent;
     private int numOfNodes;
 
@@ -37,6 +37,9 @@ public class TNode {
      *
      **/
     public Data getData() {
+        if(_data==null){
+            return null;
+        }
         return new Data(_data);
     }
 
@@ -45,6 +48,9 @@ public class TNode {
      *
      **/
     public TNode getLeft() {
+        if(_left==null){
+            return null;
+        }
         return _left;
     }
 
@@ -54,6 +60,9 @@ public class TNode {
      *
      **/
     public TNode getRight() {
+        if(_right==null){
+            return null;
+        }
         return _right;
     }
 

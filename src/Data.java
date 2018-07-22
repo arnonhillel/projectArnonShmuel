@@ -91,18 +91,9 @@ public class Data {
      **/
     @Override
     public String toString() {
-        String str1= "( id: "+this._studentId+", name: "+this._studentName+")";
+        String str1= "(id: "+this._studentId+" , name: "+this._studentName+")";
         return str1;
     }
-
-
-
-
-
-
-
-
-
 
 
 }//END DATA

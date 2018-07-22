@@ -1,5 +1,3 @@
-
-
 public class WiredTree {
     private TNode _root;
     private static Data _median;
@@ -22,6 +20,10 @@ public class WiredTree {
             _root = node;
             _median = node.getData();
         }
+    }
+
+    public TNode get_root() {
+        return _root;
     }
 
     public void add(Data data) {//page 220
@@ -68,7 +70,7 @@ public class WiredTree {
         node.setLeft(treePredecessor(node));
         node.setRight(treeSuccessor(node));
 
-      //  updateMedian();//update the pointer on the median
+        //  updateMedian();//update the pointer on the median
     }//end of add method/
 
 
@@ -182,6 +184,9 @@ public class WiredTree {
             return x.getLeft();
         }
     }
+    public  TNode maximum(){
+        return maximum(_root);
+    }
 
     private TNode maximum(TNode root) {
         TNode max;
@@ -199,6 +204,10 @@ public class WiredTree {
     }
 
 
+    public  TNode minimum(){
+        return minimum(_root);
+    }
+
     private TNode minimum(TNode root) {
         TNode min;
 
@@ -214,27 +223,45 @@ public class WiredTree {
         return min;
     }
 
-    public void print(){
+    public void inOrderPrint(){
 
-            TNode current;
+        TNode current;
 
-            if(_root==null) {
-                return;
+        if(_root==null) {
+            return;
+        }
+
+        current=getLeftMostTreeNode(_root);
+        while(current!=null) {
+            System.out.println(current.getData().toString());
+            if(!rChild(current)) {
+                current=treeSuccessor(current);
+            }else {
+                current=getLeftMostTreeNode(current.getRight());
             }
-
-            current=getLeftMostTreeNode(_root);
-            while(current!=null) {
-                System.out.printf("%s", current.getData().toString());
-                if(!rChild(current)) {
-                    current=treeSuccessor(current);
-                }else {
-                    current=getLeftMostTreeNode(current.getRight());
-                }
-            }
-            System.out.println();
+        }
+        System.out.println();
 
 
     }
+    public  void postOrderPrint(){
+        postOrderPrint(this._root);
+        System.out.println();
+    }
+    private void postOrderPrint(TNode x){
+        if(x!=null){
+            if(lChild(x)){
+                postOrderPrint(x.getLeft());
+            }
+
+            if (rChild(x)){
+                postOrderPrint(x.getRight());
+            }
+
+            System.out.println(x.getData().toString());
+        }
+    }
+
     private TNode getLeftMostTreeNode(TNode subTreeRoot) {
         TNode leftMostTreeNode;
 
