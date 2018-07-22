@@ -281,8 +281,8 @@ public class WiredTree {
 
             int state = this._median.getData().compareTo(current.getData());
             if (state < 0 && medianOdd == false);
-            if (state >= 0 && medianOdd == false)this._median = this._median.getRight();
-            if (state <= 0 && medianOdd == true)this._median = this._median.getLeft();
+            if (state >= 0 && medianOdd == false)this._median = minimum(this._median.getRight());
+            if (state <= 0 && medianOdd == true)this._median = maximum(this._median.getLeft());
             if (state > 0 && medianOdd == true) ;
             this.medianOdd = !this.medianOdd;
     }
@@ -294,10 +294,10 @@ public class WiredTree {
         }
         else{
             int state = this._median.getData().compareTo(current.getData());
-            if (state <= 0 && medianOdd == false) this._median = this._median.getRight();
+            if (state <= 0 && medianOdd == false) this._median = treeSuccessor(this._median);
             if (state > 0 && medianOdd == false);
             if (state < 0 && medianOdd == true);
-            if (state >= 0 && medianOdd == true) this._median = this._median.getLeft();
+            if (state >= 0 && medianOdd == true)this._median = treePredecessor(this._median);
             this.medianOdd = !this.medianOdd;
         }
     }
