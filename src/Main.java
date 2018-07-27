@@ -45,7 +45,12 @@ public class Main {
         System.out.println("the minimum is : "+tree.minimum().getData());
         System.out.println("the maximum is : "+tree.maximum().getData());
         System.out.println("the median is : "+tree.get_median().getData());
+
         tree.delete(new TNode(data5));
         System.out.println("the median is : "+tree.get_median().getData());
+
+
+
+
     }
 }

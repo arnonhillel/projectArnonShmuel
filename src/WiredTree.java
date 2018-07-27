@@ -33,8 +33,8 @@ public class WiredTree {
         TNode x = _root;
         TNode y = null;
 
-        if (search(data) != null) {
-            System.out.println("the student is exist!");
+        if (search(data)!= null) {
+            System.err.println("the student is exist!");
             return;
 
         }
@@ -317,11 +317,6 @@ public class WiredTree {
     public  TNode get_median(){
         return this._median;
     }
-
-    /* TODO */
-    //private void updateMedian () {
-    //       return;
-    //   }
 
 
 
