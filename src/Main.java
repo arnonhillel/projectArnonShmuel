@@ -13,14 +13,17 @@ public class Main {
         WiredTree tree = new WiredTree();
 
 
-   tree.add(data);
+        tree.add(data);
         tree.add(data1);
         tree.add(data2);
         tree.add(data3);
-        tree.add(data4);
+
         tree.add(data5);
         tree.add(data6);
-       // tree.delete(data2);
+
+
+
+
 
 
 
@@ -37,7 +40,7 @@ public class Main {
         }
 */
 
-        System.out.println("inOrder : ");
+     /*   System.out.println("inOrder : ");
         tree.inOrderPrint();
         System.out.println("postOrder : ");
         tree.postOrderPrint();
@@ -46,12 +49,24 @@ public class Main {
         System.out.println("the minimum is : "+tree.minimum().getData());
         System.out.println("the maximum is : "+tree.maximum().getData());
         System.out.println("the median is : "+tree.get_median().getData());
+*/
 
-        tree.delete(4);
+
+
+
+
+      //
        //System.out.println("the median is : "+tree.get_median().getData());
 
-       System.out.println("inOrder : ");
-       tree.inOrderPrint();
+      // System.out.println("inOrder : ");
+      tree.inOrderPrint();
+        tree.search(data4);
+        tree.add(data4);
+
+        tree.inOrderPrint();
+        tree.search(data4);
+
+
 
 
     }

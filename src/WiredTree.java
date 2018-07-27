@@ -83,10 +83,10 @@ public class WiredTree {
      * @return Pointer to node with the data , null if not found.
      **/
     public TNode search(int id) {
-        String name=" ";
-        Data data=new Data(id,name);
+       // String name=" ";
+       // Data data=new Data(id,name);
 
-        return search(data);
+        return search(new Data(id,""));
     }
     /**
      * search for data in the tree/
@@ -94,19 +94,32 @@ public class WiredTree {
      * @param data - The data to look for.
      * @return Pointer to node with the "data", null - not found.
      **/
-    private TNode search(Data data) {
+    public TNode search(Data data) {
         TNode x = _root;
-        while ((lChild(x) || rChild(x)) && !(data.equals(x.getData()))) {
+        while ((lChild(x) || rChild(x)) && !(data.compareTo(x.getData())==0)) {
             if (data.compareTo(x.getData()) < 0) {
-                x = x.getLeft();
+                if(lChild(x)) {
+                    x = x.getLeft();
+                }
+                else{
+                    break;
+                }
             } else {
-                x = x.getRight();
+                if(rChild(x)) {
+                    x = x.getRight();
+                }
+                else{
+                    break;
+                }
             }
         }
-        if ((x != null) && (data.equals(x.getData()))) {
+        if ((x != null) && (data.compareTo(x.getData())==0)) {
+            System.out.println("found!");
             return x;// FOUND
         }
-        return null;
+        else {
+            return null;
+        }
 
 
     }
