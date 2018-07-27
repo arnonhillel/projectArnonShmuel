@@ -99,9 +99,18 @@ public class WiredTree {
 
     }
 
+    public  void delete(Data data){
+        TNode z = search(data);
+        if(z==null) {
+            System.err.println("The student does not exist in the tree");
+        }
+
+           delete(z);
+    }
+
 
     /* TODO */
-    public void delete(TNode nodeToDel) {//page 221
+    private void delete(TNode nodeToDel) {//page 221
         TNode x, y, z;
         z = nodeToDel;
 
