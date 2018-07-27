@@ -13,14 +13,14 @@ public class Main {
         WiredTree tree = new WiredTree();
 
 
-        tree.add(data);
+      /*  tree.add(data);
         tree.add(data1);
         tree.add(data2);
         tree.add(data3);
         tree.add(data4);
         tree.add(data5);
         tree.add(data6);
-
+*/
 
 
         try{
@@ -45,6 +45,7 @@ public class Main {
         System.out.println("the minimum is : "+tree.minimum().getData());
         System.out.println("the maximum is : "+tree.maximum().getData());
         System.out.println("the median is : "+tree.get_median().getData());
-
+        tree.delete(new TNode(data5));
+        System.out.println("the median is : "+tree.get_median().getData());
     }
 }
