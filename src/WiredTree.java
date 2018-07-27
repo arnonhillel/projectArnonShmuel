@@ -131,8 +131,8 @@ public class WiredTree {
             System.out.println("The student does not exist in the tree");
         }
         else{
-           delete(z);
-    }
+           delete1(z);
+     }
     }
 
 
@@ -170,6 +170,45 @@ public class WiredTree {
         updateMedianDelete(nodeToDel);
     }
 
+    private void delete1(TNode nodeToDel) {//page 221
+        TNode x, y, z;
+        z = nodeToDel;
+
+        if (!lChild(z) && !rChild(z)) {
+            if (z.getParent()!=null) {
+                if (z.getParent().getLeft() == z) z.getParent().setLeft(null);
+                if (z.getParent().getRight() == z) z.getParent().setRight(null);
+
+                if (!rChild(z.getLeft())&&z.getLeft()!=null ) {
+                    z.getLeft().setRight(z.getRight());
+                }
+
+                if (!lChild(z.getRight())&z.getRight()!=null) {
+                    z.getRight().setLeft(z.getLeft());
+                }
+            }
+            z = null;
+        }
+
+        else {
+            if (!lChild(z) && rChild(z)){
+                z.setData(new Data(z.getRight().getData()._studentId,z.getRight().getData()._studentName));
+                delete(z.getRight());
+            }
+            else{
+                if(lChild(z) && !rChild(z)){
+                    z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
+                    delete(z.getLeft());
+                }
+                else{
+                    z.setData(new Data(treeSuccessor(z).getData()));
+                    delete(treeSuccessor(z));
+                }
+
+            }
+        }
+
+    }
 
     private boolean rChild(TNode x) {
         return (x != null) && (x.getRight() != null) &&

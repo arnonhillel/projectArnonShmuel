@@ -76,7 +76,7 @@ public class TNode {
         if(_data==null) {
             throw new NullPointerException("_data is not valid!.");
         }
-        this._data = new Data(_data.get_studentId(),data.get_studentName());
+        this._data =data;
     }
 
     /**
