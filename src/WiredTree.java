@@ -136,9 +136,9 @@ public class WiredTree {
     }
 
 
-    private void delete(TNode nodeToDel) {//page 221
-        TNode x, y, z;
-        z = nodeToDel;
+    private void delete(TNode z) {//page 221
+        TNode x, y;
+
 
         if (!lChild(z) || !rChild(z)) {
             y = z;
@@ -167,7 +167,7 @@ public class WiredTree {
         }
 
         System.out.println("deleted! ");
-        updateMedianDelete(nodeToDel);
+        updateMedianDelete(z);
     }
 
     private void delete1(TNode nodeToDel) {//page 221
@@ -192,13 +192,15 @@ public class WiredTree {
 
         else {
             if (!lChild(z) && rChild(z)){
-                z.setData(new Data(z.getRight().getData()._studentId,z.getRight().getData()._studentName));
-                delete(z.getRight());
+               this.replace(z ,z.getRight());
+               // z.setData(new Data(z.getRight().getData()._studentId,z.getRight().getData()._studentName));
+               // delete(z.getRight());
             }
             else{
                 if(lChild(z) && !rChild(z)){
-                    z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
-                    delete(z.getLeft());
+                    this.replace(z ,z.getLeft());
+                 //   z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
+                  //  delete(z.getLeft());
                 }
                 else{
                     z.setData(new Data(treeSuccessor(z).getData()));
@@ -391,6 +393,24 @@ public class WiredTree {
 
     public  TNode get_median(){
         return this._median;
+    }
+
+
+    private void replace (TNode no1 ,TNode no2){
+        if (no1.getParent()== null){
+            this._root = no2;
+        }
+
+        else{
+            if(no1.getParent().getRight() == no1){
+                no2.setParent(no1.getParent());
+                no1.getParent().setRight(no2);
+            }
+            else{
+                no2.setParent(no1.getParent());
+                no1.getParent().setLeft(no2);
+            }
+        }
     }
 
 
