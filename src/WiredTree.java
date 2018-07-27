@@ -103,7 +103,6 @@ public class WiredTree {
     /* TODO */
     public void delete(TNode nodeToDel) {//page 221
         TNode x, y, z;
-        TNode current;
         z = nodeToDel;
 
         if (!lChild(z) || !rChild(z)) {
@@ -134,23 +133,23 @@ public class WiredTree {
 
         updateMedianDelete(nodeToDel);
 
-        //updateMedian();
+
 
     }
 
-    /* TODO */
+
     private boolean rChild(TNode x) {
         return (x != null) && (x.getRight() != null) &&
                 (x == x.getRight().getParent());
     }
 
-    /* TODO */
+
     private boolean lChild(TNode x) {
         return (x != null) && (x.getLeft() != null) &&
                 (x == x.getLeft().getParent());
     }
 
-    /* TODO */
+
     private TNode treeSuccessor(TNode x) {
         //methude in page 218
         //assuming the nude given is from the tree
@@ -170,7 +169,7 @@ public class WiredTree {
     }
 
 
-    /* TODO */
+
     private TNode treePredecessor(TNode x) {
         //methude in page 219
         if (lChild(x)) {
@@ -261,6 +260,22 @@ public class WiredTree {
             }
 
             System.out.println(x.getData().toString());
+        }
+    }
+    public void preorderTreeWalk() {
+        preorderTreeWalk(this._root);
+        System.out.println();
+    }
+
+    private void preorderTreeWalk(TNode x) {
+        if(x!=null) {
+            System.out.println(x.getData().toString());
+            if(lChild(x)) {
+                preorderTreeWalk(x.getLeft());
+            }
+            if(rChild(x)){
+                preorderTreeWalk(x.getRight());
+            }
         }
     }
 
