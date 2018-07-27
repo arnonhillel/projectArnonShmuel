@@ -79,8 +79,20 @@ public class WiredTree {
     /**
      * search for data in the tree/
      *
+     * @param id - The key to look for.
+     * @return Pointer to node with the data , null if not found.
+     **/
+    public TNode search(int id) {
+        String name=" ";
+        Data data=new Data(id,name);
+
+        return search(data);
+    }
+    /**
+     * search for data in the tree/
+     *
      * @param data - The data to look for.
-     * @return Pointer to node with the "data", null if not found.
+     * @return Pointer to node with the "data", null - not found.
      **/
     private TNode search(Data data) {
         TNode x = _root;
@@ -99,17 +111,18 @@ public class WiredTree {
 
     }
 
-    public  void delete(Data data){
-        TNode z = search(data);
-        if(z==null) {
-            System.err.println("The student does not exist in the tree");
-        }
+    public void delete(int id){
 
+        TNode z = search(id);
+        if(z==null) {
+            System.out.println("The student does not exist in the tree");
+        }
+        else{
            delete(z);
+    }
     }
 
 
-    /* TODO */
     private void delete(TNode nodeToDel) {//page 221
         TNode x, y, z;
         z = nodeToDel;
@@ -140,6 +153,7 @@ public class WiredTree {
             z.setData(y.getData());
         }
 
+        System.out.println("deleted! ");
         updateMedianDelete(nodeToDel);
     }
 

@@ -20,9 +20,11 @@ public class Main {
         tree.add(data4);
         tree.add(data5);
         tree.add(data6);
+       // tree.delete(data2);
 
 
-    /*    try{
+
+      /*  try{
             Reader read = new Reader();
             List<TNode> nodes = read.reader("input.txt");
             for (TNode temp : nodes) {
@@ -33,8 +35,8 @@ public class Main {
         catch (Exception ex){
             System.out.println(ex.toString());
         }
-
 */
+
         System.out.println("inOrder : ");
         tree.inOrderPrint();
         System.out.println("postOrder : ");
@@ -45,10 +47,11 @@ public class Main {
         System.out.println("the maximum is : "+tree.maximum().getData());
         System.out.println("the median is : "+tree.get_median().getData());
 
-        tree.delete(data5);
-       // System.out.println("the median is : "+tree.get_median().getData());
+        tree.delete(4);
+       //System.out.println("the median is : "+tree.get_median().getData());
 
-        tree.inOrderPrint();
+       System.out.println("inOrder : ");
+       tree.inOrderPrint();
 
 
     }
