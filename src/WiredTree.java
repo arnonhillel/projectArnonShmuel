@@ -114,7 +114,6 @@ public class WiredTree {
             }
         }
         if ((x != null) && (data.compareTo(x.getData())==0)) {
-            System.out.println("found!");
             return x;// FOUND
         }
         else {
