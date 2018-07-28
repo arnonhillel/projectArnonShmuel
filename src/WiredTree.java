@@ -418,12 +418,24 @@ public class WiredTree {
     private void updateOrder (TNode node){
         TNode pre =this.treePredecessor(node);
         TNode after =this.treeSuccessor(node);
-        if (pre.getRight() == node){
-            pre.setRight(after);
-        }
-        if(after.getLeft() == node){
+        if(pre == null){
             after.setLeft(pre);
         }
+        else {
+            if (pre.getRight() == node){
+                pre.setRight(after);
+            }
+        }
+
+        if(after == null){
+            pre.setRight(after);
+        }
+        else{
+            if(after.getLeft() == node){
+                after.setLeft(pre);
+            }
+        }
+
     }
 
 
