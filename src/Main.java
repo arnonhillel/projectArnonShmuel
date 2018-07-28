@@ -64,9 +64,10 @@ public class Main {
      //   tree.search(data4);
     //    tree.delete(11);
         tree.delete(4);
-        tree.delete(6);
-        tree.delete(8);
-        tree.delete(11);
+       // tree.delete(6);
+       // tree.delete(8);
+       // tree.delete(11);
         System.out.println("inOrder : ");
+        tree.inOrderPrint();
     }
 }

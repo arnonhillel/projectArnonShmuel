@@ -193,11 +193,13 @@ public class WiredTree {
         else {
             if (!lChild(z) && rChild(z)){
                this.replace(z ,z.getRight());
+                updateOrder(z);
                // z.setData(new Data(z.getRight().getData()._studentId,z.getRight().getData()._studentName));
                // delete(z.getRight());
             }
             else{
                 if(lChild(z) && !rChild(z)){
+                    updateOrder(z);
                     this.replace(z ,z.getLeft());
                  //   z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
                   //  delete(z.getLeft());
@@ -413,6 +415,17 @@ public class WiredTree {
         }
     }
 
+
+    private void updateOrder (TNode node){
+        TNode pre =this.treePredecessor(node);
+        TNode after =this.treeSuccessor(node);
+        if (pre.getRight() == node){
+            pre.setRight(after);
+        }
+        if(after.getLeft() == node){
+            after.setLeft(pre);
+        }
+    }
 
 
 }
