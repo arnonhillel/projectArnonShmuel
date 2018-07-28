@@ -36,7 +36,6 @@ public class WiredTree {
         if (search(data)!= null) {
             System.err.println("the student is exist!");
             return;
-
         }
 
         //Looking for the right location
@@ -119,8 +118,6 @@ public class WiredTree {
         else {
             return null;
         }
-
-
     }
 
     public void delete(int id){
@@ -130,43 +127,9 @@ public class WiredTree {
             System.out.println("The student does not exist in the tree");
         }
         else{
-           delete1(z);
+            updateMedianDelete(z);
+            delete1(z);
      }
-    }
-
-
-    private void delete(TNode z) {//page 221
-        TNode x, y;
-
-
-        if (!lChild(z) || !rChild(z)) {
-            y = z;
-        } else {
-            y = treeSuccessor(z);
-        }
-
-        if (lChild(y)) {
-            x = y.getLeft();
-        } else if (rChild(y)) {
-            x = y.getRight();
-        } else {
-            x = null;
-        }
-
-        if (y.getParent() == null) {
-            _root = x;
-        } else if (lChild(y)) {
-            y.getParent().setLeft(x);
-        } else {
-            y.getParent().setRight(x);
-        }
-
-        if (y != z) {
-            z.setData(y.getData());
-        }
-
-        System.out.println("deleted! ");
-        updateMedianDelete(z);
     }
 
     private void delete1(TNode nodeToDel) {//page 221
@@ -261,6 +224,8 @@ public class WiredTree {
             return x.getLeft();
         }
     }
+
+
     public  TNode maximum(){
         return maximum(_root);
     }
@@ -438,8 +403,5 @@ public class WiredTree {
                 after.setLeft(pre);
             }
         }
-
     }
-
-
 }

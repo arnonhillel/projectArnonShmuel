@@ -63,7 +63,11 @@ public class Main {
         tree.inOrderPrint();
      //   tree.search(data4);
     //    tree.delete(11);
-        tree.delete(10);
+        System.out.println("median : "+ tree.get_median().getData()._studentId);
+        tree.delete(2);
+        System.out.println("median : "+ tree.get_median().getData()._studentId);
+        tree.delete(5);
+        System.out.println("median : "+ tree.get_median().getData()._studentId);
        // tree.delete(6);
        // tree.delete(8);
        // tree.delete(11);
