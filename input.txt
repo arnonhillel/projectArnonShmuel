@@ -1,4 +1,5 @@
-5  shmuel
-7 sam
-9   david
-12  kale
+10  shmuel
+9 sam
+8   david
+7  kale
+6  kale

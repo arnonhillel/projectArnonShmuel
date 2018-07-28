@@ -198,8 +198,9 @@ public class WiredTree {
             }
             else{
                 if(lChild(z) && !rChild(z)){
-                    updateOrder(z);
+
                     this.replace(z ,z.getLeft());
+                    updateOrder(z);
                  //   z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
                   //  delete(z.getLeft());
                 }
@@ -399,7 +400,9 @@ public class WiredTree {
 
     private void replace (TNode no1 ,TNode no2){
         if (no1.getParent()== null){
+
             this._root = no2;
+            this._root.setParent(null);
         }
 
         else{

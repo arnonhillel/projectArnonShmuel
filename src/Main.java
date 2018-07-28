@@ -63,7 +63,7 @@ public class Main {
         tree.inOrderPrint();
      //   tree.search(data4);
     //    tree.delete(11);
-        tree.delete(5);
+        tree.delete(10);
        // tree.delete(6);
        // tree.delete(8);
        // tree.delete(11);
