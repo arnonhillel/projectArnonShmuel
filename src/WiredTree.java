@@ -205,7 +205,7 @@ public class WiredTree {
                 }
                 else{
                     z.setData(new Data(treeSuccessor(z).getData()));
-                    delete(treeSuccessor(z));
+                    delete1(treeSuccessor(z));
                 }
 
             }
