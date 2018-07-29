@@ -41,7 +41,7 @@ public class Main {
                     break;
                 }
                 case 6: {
-                    tree.get_median();
+                    tree.get_median().getData();
                     break;
                 }
 
@@ -58,12 +58,12 @@ public class Main {
                     break;
                 }
                 case 9: {
-                    System.out.println(" the number of the maximum is  " + tree.maximum());
+                    System.out.println(" the number of the maximum is  " + tree.maximum().getData().toString());
 
                     break;
                 }
                 case 10: {
-                    System.out.println(" the number of the minimum is  " + tree.minimum());
+                    System.out.println(" the number of the minimum is  " + tree.minimum().getData().toString());
                     break;
                 }
                 case 11:
