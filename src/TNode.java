@@ -31,7 +31,7 @@ public class TNode {
     private TNode(Data _data,TNode _parent,TNode _left, TNode _right) {
 
         if(_data==null) {
-            throw new NullPointerException("_data is not valid.");//comment
+            throw new NullPointerException("_data is not valid.");//ERROR
         }
 
         this._data = new Data(_data);

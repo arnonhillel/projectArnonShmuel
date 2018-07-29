@@ -1,3 +1,11 @@
+
+/**
+ * @author : Arnon Hillel 302943287
+ * @author : Shmuel Stav
+ *class WiredTree represent tree, using the TNode class and Data class.
+ *
+ **/
+
 public class WiredTree {
     private TNode _root;
     private TNode _median;
@@ -13,8 +21,7 @@ public class WiredTree {
     }
 
     /**
-     *
-     *
+     * @param node the node to set in the tree.
      **/
     public WiredTree(TNode node) {
         if (_root == null) {
@@ -23,11 +30,17 @@ public class WiredTree {
             medianOdd = true;
         }
     }
-
+    /**
+     * @return: the root of the tree.
+     **/
     public TNode get_root() {
         return _root;
     }
 
+
+    /**
+     * @param data the data in the new node to be set in the tree.
+     **/
     public void add(Data data) {//page 220
         TNode node;
         TNode x = _root;
@@ -59,7 +72,7 @@ public class WiredTree {
             }
         }
 
-        //insert
+        //add
         node.setParent(y);
         if (y == null) {//if the tree is empty
             _root = node;
@@ -71,7 +84,6 @@ public class WiredTree {
         node.setLeft(treePredecessor(node));
         node.setRight(treeSuccessor(node));
         updateMedianAdd(node);
-        //  updateMedian();//update the pointer on the median
     }//end of add method/
 
 
@@ -82,9 +94,6 @@ public class WiredTree {
      * @return Pointer to node with the data , null if not found.
      **/
     public TNode search(int id) {
-       // String name=" ";
-       // Data data=new Data(id,name);
-
         return search(new Data(id,""));
     }
     /**
@@ -141,7 +150,7 @@ public class WiredTree {
      * @param nodeToDel the key of the node to delete.
      **/
     private void delete1(TNode nodeToDel) {//page 221
-        TNode x, y, z;
+        TNode z;
         z = nodeToDel;
 
         if (!lChild(z) && !rChild(z)) {
@@ -172,8 +181,6 @@ public class WiredTree {
 
                     this.replace(z ,z.getLeft());
                     updateOrder(z);
-                 //   z.setData(new Data(z.getLeft().getData()._studentId,z.getLeft().getData()._studentName));
-                  //  delete(z.getLeft());
                 }
                 else{
                     z.setData(new Data(treeSuccessor(z).getData()));
@@ -233,7 +240,7 @@ public class WiredTree {
      * @return The pointer on predecessor of x.
      */
     private TNode treePredecessor(TNode pNode) {
-        //methude in page 219
+        //method in page 219
         if (lChild(pNode)) {
             return maximum(pNode.getLeft());
         } else if (pNode.getLeft() == null) {
