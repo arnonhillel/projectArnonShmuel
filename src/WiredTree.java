@@ -119,7 +119,12 @@ public class WiredTree {
             return null;
         }
     }
-
+    /**
+     * Delete mode from tree.
+     * @param id the key of the node to delete
+     *   calling for private search method with the id and get a pointer to node to delete if found
+     *   send the pointer to node with the key to a private delete method
+     **/
     public void delete(int id){
 
         TNode z = search(id);
@@ -131,7 +136,10 @@ public class WiredTree {
             delete1(z);
      }
     }
-
+    /**
+     *  a private delete method
+     * @param nodeToDel the key of the node to delete.
+     **/
     private void delete1(TNode nodeToDel) {//page 221
         TNode x, y, z;
         z = nodeToDel;
@@ -176,60 +184,84 @@ public class WiredTree {
         }
 
     }
-
+    /**
+     *  check if the right son of the x node is wired or a real child
+     * @param x The node that checks whether he has a real right son or wired/
+     * @return true if x has a real right son or not.
+     **/
     private boolean rChild(TNode x) {
         return (x != null) && (x.getRight() != null) &&
                 (x == x.getRight().getParent());
     }
 
-
+    /**
+     *  check if the left son of the x node is wired or a real child
+     * @param x The node that checks whether he has a real left son or wired/
+     * @return true if x has a real left son or not.
+     **/
     private boolean lChild(TNode x) {
         return (x != null) && (x.getLeft() != null) &&
                 (x == x.getLeft().getParent());
     }
 
-
-    private TNode treeSuccessor(TNode x) {
+    /**
+     * method for get the successor of given node.
+     * @param pNode- the pointer to the node to look for a successor.
+     * @return The pointer on successor of x.
+     */
+    private TNode treeSuccessor(TNode pNode) {
         //methude in page 218
         //assuming the nude given is from the tree
-        if (rChild(x)) {
-            return minimum(x.getRight());
-        } else if (x.getRight() == null) {
-            TNode y = x.getParent();
-            while ((y != null) && (x == y.getRight())) {
-                x = y;
+        if (rChild(pNode)) {
+            return minimum(pNode.getRight());
+        } else if (pNode.getRight() == null) {
+            TNode y = pNode.getParent();
+            while ((y != null) && (pNode == y.getRight())) {
+                pNode = y;
                 y = y.getParent();
             }
             return y;
         } else {
-            return x.getRight();
+            return pNode.getRight();
 
         }
     }
 
 
-
-    private TNode treePredecessor(TNode x) {
+    /**
+     * method for get the predecessor of given node.
+     * @param pNode- the pointer to the node to look for a predecessor.
+     * @return The pointer on predecessor of x.
+     */
+    private TNode treePredecessor(TNode pNode) {
         //methude in page 219
-        if (lChild(x)) {
-            return maximum(x.getLeft());
-        } else if (x.getLeft() == null) {
-            TNode y = x.getParent();
-            while (y != null && x == y.getLeft()) {
-                x = y;
+        if (lChild(pNode)) {
+            return maximum(pNode.getLeft());
+        } else if (pNode.getLeft() == null) {
+            TNode y = pNode.getParent();
+            while (y != null && pNode == y.getLeft()) {
+                pNode = y;
+
                 y = y.getParent();
             }
             return y;
         } else {
-            return x.getLeft();
+            return pNode.getLeft();
         }
     }
 
-
+    /**
+     * call for the max method with the root as a parameter.
+     */
     public  TNode maximum(){
         return maximum(_root);
     }
 
+    /**
+     * Return the node with the maximum key value on tree .
+     * @param root - the root of the tree to look for a max.
+     * @return - A pointer to the the node with the maximum key value.
+     */
     private TNode maximum(TNode root) {
         TNode max;
         if (root == null) {
@@ -246,10 +278,17 @@ public class WiredTree {
     }
 
 
+    /**
+     * call for the max method with the root as a parameter.
+     */
     public  TNode minimum(){
         return minimum(_root);
     }
-
+    /**
+     * Return the node with the minimum key value on tree .
+     * @param root - the root of the tree to look for a minimum.
+     * @return - A pointer to the the node with the minimum key value.
+     */
     private TNode minimum(TNode root) {
         TNode min;
 
@@ -264,7 +303,9 @@ public class WiredTree {
 
         return min;
     }
-
+    /**
+     * print the tree with inorder traverse.
+     */
     public void inOrderPrint(){
 
         TNode current;
@@ -286,10 +327,18 @@ public class WiredTree {
 
 
     }
+
+    /**
+     * print the tree with postorder traverse.
+     * call for a private postOrderPrint metode.
+     */
     public  void postOrderPrint(){
         postOrderPrint(this._root);
         System.out.println();
     }
+    /**
+    * print the tree with postorder traverse.
+     */
     private void postOrderPrint(TNode x){
         if(x!=null){
             if(lChild(x)){
@@ -303,11 +352,17 @@ public class WiredTree {
             System.out.println(x.getData().toString());
         }
     }
+    /**
+     * print the tree with preorder traverse.
+     * call for a private preorder print metode.
+     */
     public void preorderTreeWalk() {
         preorderTreeWalk(this._root);
         System.out.println();
     }
-
+    /**
+     * print the tree with preorder traverse.
+     */
     private void preorderTreeWalk(TNode x) {
         if(x!=null) {
             System.out.println(x.getData().toString());
