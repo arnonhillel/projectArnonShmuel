@@ -210,8 +210,24 @@ public class WiredTree {
                 (x == x.getLeft().getParent());
     }
 
+
+    public TNode treeSuccessor( int id) {
+        TNode z = search(id);
+        if (z == null) {
+            System.out.println("The student does not exist in the tree");
+            return null;
+        } else {
+            if(treeSuccessor(z)==null){
+                return null;
+            }
+            else {
+                return treeSuccessor(z);
+            }
+
+        }
+    }
     /**
-     * method for get the successor of given node.
+     * private method for get the successor of given node.
      * @param pNode- the pointer to the node to look for a successor.
      * @return The pointer on successor of x.
      */
@@ -232,10 +248,28 @@ public class WiredTree {
 
         }
     }
-
+    /**
+     * method for get the Predecessor of given id.
+     * @param id- the pointer to the node to look for a successor.
+     * @return The pointer Predecessor of id.
+     */
+    public TNode treePredecessor( int id) {
+        TNode z = search(id);
+        if (z == null) {
+            System.out.println("The student does not exist in the tree");
+            return null;
+        } else {
+            if(treePredecessor(z)==null){
+                return null;
+            }
+            else {
+                return treePredecessor(z);
+            }
+        }
+    }
 
     /**
-     * method for get the predecessor of given node.
+     * private method for get the predecessor of given node.
      * @param pNode- the pointer to the node to look for a predecessor.
      * @return The pointer on predecessor of x.
      */

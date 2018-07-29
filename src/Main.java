@@ -39,8 +39,16 @@ public class Main {
             System.out.println(ex.toString());
         }
 
+        System.out.println("inOrder : ");
+        tree.inOrderPrint();
 
-       System.out.println("inOrder : ");
+        System.out.println("treePredecessor : "+ tree.treePredecessor(1));
+        System.out.println("treeSuccessor : "+ tree.treeSuccessor(1));
+
+
+
+
+      /* System.out.println("inOrder : ");
         tree.inOrderPrint();
         System.out.println("postOrder : ");
         tree.postOrderPrint();
@@ -72,5 +80,6 @@ public class Main {
        tree.delete(11);
         System.out.println("inOrder : ");
         tree.inOrderPrint();
+        */
     }
 }
