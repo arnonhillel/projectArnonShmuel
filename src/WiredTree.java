@@ -375,6 +375,12 @@ public class WiredTree {
         }
     }
 
+
+    /**
+     * looking for the leftmost TreeNode in subtree .
+     * @param  subTreeRoot  the pointer of the subtree root.
+     * @return pointer for the leftmost TreeNode.
+     */
     private TNode getLeftMostTreeNode(TNode subTreeRoot) {
         TNode leftMostTreeNode;
 
@@ -387,7 +393,9 @@ public class WiredTree {
         return leftMostTreeNode;
     }
 
-
+    /**
+     * update the median after a delete.
+     */
     private void updateMedianDelete (TNode current) {
 
             int state = this._median.getData().compareTo(current.getData());
@@ -397,7 +405,9 @@ public class WiredTree {
             if (state > 0 && medianOdd == true) ;
             this.medianOdd = !this.medianOdd;
     }
-
+    /**
+     * update the median after adding.
+     */
     private void updateMedianAdd (TNode current) {
         if(this.get_median()== null){
             this._median = current;
@@ -412,7 +422,9 @@ public class WiredTree {
             this.medianOdd = !this.medianOdd;
         }
     }
-
+    /**
+     * @return the pointer of node with the median.
+     */
     public  TNode get_median(){
         return this._median;
     }
