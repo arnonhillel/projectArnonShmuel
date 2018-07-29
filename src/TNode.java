@@ -10,7 +10,6 @@ public class TNode {
 
     private Data _data;     //student id and student name.
     private TNode _left,_right,_parent;
-    private int numOfNodes;
 
 
     /**
@@ -38,7 +37,7 @@ public class TNode {
         this._parent = _parent;
         this._left = _left;
         this._right = _right;
-        this.numOfNodes=1;
+
 
     }
 

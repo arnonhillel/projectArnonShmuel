@@ -40,7 +40,7 @@ public class Main {
         }
 
 
-     /*   System.out.println("inOrder : ");
+       System.out.println("inOrder : ");
         tree.inOrderPrint();
         System.out.println("postOrder : ");
         tree.postOrderPrint();
@@ -49,29 +49,27 @@ public class Main {
         System.out.println("the minimum is : "+tree.minimum().getData());
         System.out.println("the maximum is : "+tree.maximum().getData());
         System.out.println("the median is : "+tree.get_median().getData());
-*/
         System.out.println("the maximum is : "+tree.maximum().getData());
 
 
 
 
 
-      //
-       //System.out.println("the median is : "+tree.get_median().getData());
+      System.out.println("the median is : "+tree.get_median().getData());
 
-      // System.out.println("inOrder : ");
+       System.out.println("inOrder : ");
 
         tree.inOrderPrint();
-     //   tree.search(data4);
-    //    tree.delete(11);
+       tree.search(2);
+       tree.delete(11);
         System.out.println("median : "+ tree.get_median().getData()._studentId);
         tree.delete(2);
         System.out.println("median : "+ tree.get_median().getData()._studentId);
         tree.delete(5);
         System.out.println("median : "+ tree.get_median().getData()._studentId);
-       // tree.delete(6);
-       // tree.delete(8);
-       // tree.delete(11);
+        tree.delete(6);
+       tree.delete(8);
+       tree.delete(11);
         System.out.println("inOrder : ");
         tree.inOrderPrint();
     }
