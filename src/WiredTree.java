@@ -42,7 +42,7 @@ public class WiredTree {
         node = new TNode((data));
         while (x != null) {//Pseudo-code on page 220
             y = x;
-            x.increaseNumOfNods();//update
+
             if (node.getData().compareTo(x.getData()) < 0) {
                 if (lChild(x)) {
                     x = x.getLeft();
@@ -182,7 +182,6 @@ public class WiredTree {
 
             }
         }
-
     }
     /**
      *  check if the right son of the x node is wired or a real child
@@ -449,7 +448,9 @@ public class WiredTree {
         }
     }
 
-
+    /**
+     * Update the order of the tree.
+     */
     private void updateOrder (TNode node){
         TNode pre =this.treePredecessor(node);
         TNode after =this.treeSuccessor(node);
