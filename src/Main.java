@@ -1,85 +1,109 @@
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
-
-        //Data data =new Data(5,"shmulic");
-        //Data data1 =new Data(3,"eli");
-        //Data data2 =new Data(4,"rami");
-        //Data data3 =new Data(8,"yuval");
-        //Data data4 =new Data(6,"yehoyachin");
-       // Data data5 =new Data(8,"yuval");
-      //  Data data6 =new Data(9,"yehoyachin");
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         WiredTree tree = new WiredTree();
 
+        boolean run = true;
 
-      //  tree.add(data);
-       // tree.add(data1);
-       // tree.add(data2);
-       // tree.add(data3);
+        while (run) {
+            System.out.println("for insert press 1, delete 2 ,  preorder 3 , inorder 4  , postorder 5 , get median 6 ");
+            System.out.println(" get predecessor 7, get successor 8 , get maximum 9 , get minimum 10, exit 11");
 
-        //tree.add(data5);
-       // tree.add(data6);
+            switch (Integer.parseInt(scanner.nextLine())) {
+                case 1: {
+                    System.out.println("Please insert the  student id");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Please insert the  student name");
+                    String name = scanner.nextLine();
+                    Data data = new Data(id, name);
+                    tree.add(data);
+                    break;
+                }
+                case 2: {
+                    System.out.println("Please insert the student id");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    tree.delete(id);
+                    break;
+                }
+                case 3: {
+                    tree.preorderPrint();
+                    break;
+                }
+                case 4: {
+                    tree.inOrderPrint();
+                    break;
+                }
+                case 5: {
+                    tree.postOrderPrint();
+                    break;
+                }
+                case 6: {
+                    tree.get_median();
+                    break;
+                }
 
+                case 7: {
+                    System.out.println("Please insert the student id");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    tree.treePredecessor(id);
+                    break;
+                }
+                case 8: {
+                    System.out.println("Please insert the student id");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    tree.treeSuccessor(id);
+                    break;
+                }
+                case 9: {
+                    System.out.println(" the number of the maximum is  " + tree.maximum());
 
+                    break;
+                }
+                case 10: {
+                    System.out.println(" the number of the minimum is  " + tree.minimum());
+                    break;
+                }
+                case 11:
 
-
-
-
-
-       try{
+                {
+                    System.out.println("thank you!");
+                    run = false;
+                    break;
+                }
+                default: {
+                    System.out.println("not a statment!");
+                    break;
+                }
+            }
+        }
+       /* try {
             Reader read = new Reader();
             List<TNode> nodes = read.reader("input.txt");
             for (TNode temp : nodes) {
                 tree.add(temp.getData());
             }
 
-        }
-        catch (Exception ex){
-            System.out.println(ex.toString());
-        }
 
-        System.out.println("inOrder : ");
-        tree.inOrderPrint();
+            try {
+                Reader read = new Reader();
+                List<TNode> nodes = read.reader("input.txt");
+                for (TNode temp : nodes) {
+                    tree.add(temp.getData());
+                }
 
-        System.out.println("treePredecessor : "+ tree.treePredecessor(1));
-        System.out.println("treeSuccessor : "+ tree.treeSuccessor(1));
+            } catch (Exception ex) {
+                System.out.println(ex.toString());
+            }
 
+            System.out.println("inOrder : ");
+            tree.inOrderPrint();
 
+            System.out.println("treePredecessor : " + tree.treePredecessor(1));
+            System.out.println("treeSuccessor : " + tree.treeSuccessor(1));
 
-
-      /* System.out.println("inOrder : ");
-        tree.inOrderPrint();
-        System.out.println("postOrder : ");
-        tree.postOrderPrint();
-        System.out.println("preOrder : ");
-        tree.preorderTreeWalk();
-        System.out.println("the minimum is : "+tree.minimum().getData());
-        System.out.println("the maximum is : "+tree.maximum().getData());
-        System.out.println("the median is : "+tree.get_median().getData());
-        System.out.println("the maximum is : "+tree.maximum().getData());
-
-
-
-
-
-      System.out.println("the median is : "+tree.get_median().getData());
-
-       System.out.println("inOrder : ");
-
-        tree.inOrderPrint();
-       tree.search(2);
-       tree.delete(11);
-        System.out.println("median : "+ tree.get_median().getData()._studentId);
-        tree.delete(2);
-        System.out.println("median : "+ tree.get_median().getData()._studentId);
-        tree.delete(5);
-        System.out.println("median : "+ tree.get_median().getData()._studentId);
-        tree.delete(6);
-       tree.delete(8);
-       tree.delete(11);
-        System.out.println("inOrder : ");
-        tree.inOrderPrint();
-        */
+        }*/
     }
 }

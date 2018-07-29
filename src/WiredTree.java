@@ -396,21 +396,21 @@ public class WiredTree {
      * print the tree with preorder traverse.
      * call for a private preorder print metode.
      */
-    public void preorderTreeWalk() {
-        preorderTreeWalk(this._root);
+    public void preorderPrint() {
+        preorderPrint(this._root);
         System.out.println();
     }
     /**
      * print the tree with preorder traverse.
      */
-    private void preorderTreeWalk(TNode x) {
+    private void preorderPrint(TNode x) {
         if(x!=null) {
             System.out.println(x.getData().toString());
             if(lChild(x)) {
-                preorderTreeWalk(x.getLeft());
+                preorderPrint(x.getLeft());
             }
             if(rChild(x)){
-                preorderTreeWalk(x.getRight());
+                preorderPrint(x.getRight());
             }
         }
     }
